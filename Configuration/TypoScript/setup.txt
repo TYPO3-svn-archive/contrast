@@ -1,0 +1,26 @@
+lib.tx_contrast {
+	handler = USER
+	handler {
+		includeLibs = EXT:contrast/Classes/Handler.php
+		userFunc = Tx_Contrast_Handler->execute
+	}
+	link = TEXT
+	link {
+		data = LLL:EXT:contrast/Resources/Private/locallang.xml:linkTitle
+		typolink {
+			parameter.data = TSFE:id
+			additionalParams = &tx_contrast[toggle]=1&tx_contrast[url]={getIndpEnv:TYPO3_SITE_URL}
+			additionalParams.insertData = 1
+			useCacheHash = 1
+		}
+		wrap = <span class="contrast-link">|</span>
+	}
+}
+
+[globalVar = TSFE:fe_user|sesData|tx_contrast|enable = 1] OR [globalVar = GP:tx_contrast|toggle = 1]
+{$contrast.pageObjectName} {
+	includeCSS.999999 = {$contrast.stylesheet}
+	includeCSS.999999.media = screen
+	999999 =< lib.tx_contrast.handler
+}
+[end]

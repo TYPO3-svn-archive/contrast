@@ -1,0 +1,6 @@
+contrast {
+	# cat=contrast; type=string; label=Page Object: Name of your TypoScript page object
+	pageObjectName = page
+	# cat=contrast; type=file; label=Contrast Stylesheet: Contrast modification file path
+	stylesheet = EXT:contrast/Resources/Public/contrast.css
+}
