@@ -45,9 +45,9 @@ class Tx_Contrast_Includer {
 				$configuration['media'] = 'all';
 			}
 
-			$content = '<link type="text/css" href="' .htmlspecialchars($stylesheet) .
+			$content = PHP_EOL . '<link rel="stylesheet" type="text/css" href="' .htmlspecialchars($stylesheet) .
 				'" media="' . htmlspecialchars($configuration['media']) . '"' .
-				$this->getEndingSlash() . '>';
+				$this->getEndingSlash() . '>' . PHP_EOL;
 		}
 
 		return $content;
