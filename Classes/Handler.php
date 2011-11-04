@@ -57,7 +57,7 @@ class Tx_Contrast_Handler {
 			$this->persist();
 		}
 
-		if (isset($this->arguments['url']) && $this->arguments['url']) {
+		if ($this->isValidUrl()) {
 			t3lib_utility_Http::redirect(
 				$this->arguments['url'],
 				t3lib_utility_Http::HTTP_STATUS_307
@@ -95,6 +95,19 @@ class Tx_Contrast_Handler {
 	protected function persist() {
 		$this->getFrontend()->fe_user->setKey('ses', self::NAME, $this->status);
 		$this->getFrontend()->fe_user->storeSessionData();
+	}
+
+	/**
+	 * Determines whether the submitted url is on local host and matches the given md5() hash.
+	 *
+	 * @return boolean
+	 */
+	protected function isValidUrl() {
+		return (
+			isset($this->arguments['url']) && isset($this->arguments['urlHash'])
+			&& md5($this->arguments['url']) === $this->arguments['urlHash']
+			&& t3lib_div::isOnCurrentHost($this->arguments['url'])
+		);
 	}
 
 	/**

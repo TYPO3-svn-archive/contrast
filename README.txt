@@ -10,6 +10,20 @@ How to use in TypoScript:
 	page = PAGE
 	page.999 =< lib.tx_contrast.link
 
+* besides that you can integrate the behaviour to any menu by setting
+  the field "module" of a page to "contrast" in the backend and use the
+  following example
+
+	[HMENU].[TMENU] {
+		NO {
+			allWrap = <li>|</li>
+
+			doNotLinkIt = 1
+			doNotLinkIt.if < lib.tx_contrast.isModule
+			stdWrap2 < lib.tx_contrast.menuLink
+		}
+	}
+
 How it works:
 
 * calling the handler writes the status with the key 'tx_contrast' to the user

@@ -1,20 +1,34 @@
-lib.tx_contrast {
-	handler = USER
-	handler {
-		includeLibs = EXT:contrast/Classes/Handler.php
-		userFunc = Tx_Contrast_Handler->execute
-	}
-	link = TEXT
-	link {
-		data = LLL:EXT:contrast/Resources/Private/locallang.xml:linkTitle
-		typolink {
-			parameter.data = TSFE:id
-			additionalParams = &tx_contrast[toggle]=1&tx_contrast[url]={getIndpEnv:TYPO3_SITE_URL}
-			additionalParams.insertData = 1
-			useCacheHash = 1
+lib.tx_contrast.handler = USER_INT
+lib.tx_contrast.handler {
+	includeLibs = EXT:contrast/Classes/Handler.php
+	userFunc = Tx_Contrast_Handler->execute
+}
+
+lib.tx_contrast.isModule {
+	value.field = module
+	equals = contrast
+}
+
+lib.tx_contrast.link = TEXT
+lib.tx_contrast.link {
+	ifEmpty.data = LLL:EXT:contrast/Resources/Private/locallang.xml:linkTitle
+	typolink {
+		parameter.data = TSFE:id
+		additionalParams = &tx_contrast[toggle]=1&tx_contrast[url]={getIndpEnv:TYPO3_SITE_URL}&tx_contrast[urlHash]=
+		additionalParams.insertData = 1
+		additionalParams.append = TEXT
+		additionalParams.append {
+			data = getIndpEnv:TYPO3_SITE_URL
+			hash = md5
 		}
-		wrap = <span class="contrast-link">|</span>
 	}
+	wrap = <span class="contrast-link">|</span>
+}
+
+lib.tx_contrast.menuLink {
+	if < lib.tx_contrast.isModule
+	typolink < lib.tx_contrast.link.typolink
+	wrap < lib.tx_contrast.link.wrap
 }
 
 [globalVar = TSFE:fe_user|sesData|tx_contrast|enable = 1] OR [globalVar = GP:tx_contrast|toggle = 1]
@@ -24,3 +38,5 @@ lib.tx_contrast {
 	999999 =< lib.tx_contrast.handler
 }
 [end]
+
+{$contrast.pageObjectName}.1 < lib.tx_contrast.link

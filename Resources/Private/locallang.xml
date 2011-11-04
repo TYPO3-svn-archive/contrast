@@ -5,9 +5,11 @@
 	</meta>
 	<data type="array">
 		<languageKey index="default" type="array">
+			<label index="moduleTitle">Contrast View</label>
 			<label index="linkTitle">Contrast View</label>
 		</languageKey>
 		<languageKey index="de" type="array">
+			<label index="moduleTitle">Kontrastansicht</label>
 			<label index="linkTitle">Kontrastansicht</label>
 		</languageKey>
 	</data>
