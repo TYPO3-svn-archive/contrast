@@ -4,6 +4,14 @@ lib.tx_contrast.handler {
 	userFunc = Tx_Contrast_Handler->execute
 }
 
+lib.tx_contrast.includer = USER
+lib.tx_contrast.includer {
+	includeLibs = EXT:contrast/Classes/Includer.php
+	userFunc = Tx_Contrast_Includer->execute
+	stylesheet = {$contrast.stylesheet}
+	media = screen
+}
+
 lib.tx_contrast.isModule {
 	value.field = module
 	equals = contrast
@@ -33,10 +41,7 @@ lib.tx_contrast.menuLink {
 
 [globalVar = TSFE:fe_user|sesData|tx_contrast|enable = 1] OR [globalVar = GP:tx_contrast|toggle = 1]
 {$contrast.pageObjectName} {
-	includeCSS.999999 = {$contrast.stylesheet}
-	includeCSS.999999.media = screen
+	headerData.999999 < lib.tx_contrast.includer
 	999999 =< lib.tx_contrast.handler
 }
 [end]
-
-{$contrast.pageObjectName}.1 < lib.tx_contrast.link

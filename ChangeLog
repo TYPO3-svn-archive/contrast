@@ -1,5 +1,10 @@
 2011-11-04  Oliver Hader  <oliver.hader@typo3.org>
 
+	* Release of version 0.1.1
+	* Fix bug with t3lib_pageRenderer and inclusion order
+
+2011-11-04  Oliver Hader  <oliver.hader@typo3.org>
+
 	* Add possibility to use pages.module as indicator to use it in menus
 	* Add hash to validate given url for redirecting
 
