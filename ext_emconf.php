@@ -3,7 +3,7 @@
 ########################################################################
 # Extension Manager/Repository config file for ext "contrast".
 #
-# Auto generated 03-11-2011 22:10
+# Auto generated 04-11-2011 12:37
 #
 # Manual updates:
 # Only the data in the array - everything else is removed by next
@@ -29,7 +29,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'clearCacheOnLoad' => 0,
 	'lockType' => '',
 	'author_company' => '',
-	'version' => '0.0.0',
+	'version' => '0.1.0',
 	'constraints' => array(
 		'depends' => array(
 		),
@@ -38,7 +38,9 @@ $EM_CONF[$_EXTKEY] = array(
 		'suggests' => array(
 		),
 	),
-	'_md5_values_when_last_written' => 'a:5:{s:9:"ChangeLog";s:4:"499e";s:10:"README.txt";s:4:"ee2d";s:12:"ext_icon.gif";s:4:"1bdc";s:19:"doc/wizard_form.dat";s:4:"3f08";s:20:"doc/wizard_form.html";s:4:"06d9";}',
+	'_md5_values_when_last_written' => 'a:9:{s:9:"ChangeLog";s:4:"1115";s:10:"README.txt";s:4:"3e23";s:12:"ext_icon.gif";s:4:"1bdc";s:14:"ext_tables.php";s:4:"599e";s:19:"Classes/Handler.php";s:4:"2fb7";s:38:"Configuration/TypoScript/constants.txt";s:4:"e382";s:34:"Configuration/TypoScript/setup.txt";s:4:"7118";s:31:"Resources/Private/locallang.xml";s:4:"340f";s:29:"Resources/Public/contrast.css";s:4:"ed7d";}',
+	'suggests' => array(
+	),
 );
 
 ?>
