@@ -27,6 +27,11 @@
  */
 class Tx_Contrast_Includer {
 	/**
+	 * @var tslib_cObj
+	 */
+	public $cObj;
+
+	/**
 	 * Executes the inclusion of the stylesheet.
 	 *
 	 * @param string $content

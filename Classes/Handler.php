@@ -59,7 +59,7 @@ class Tx_Contrast_Handler {
 
 		if ($this->isValidUrl()) {
 			t3lib_utility_Http::redirect(
-				$this->arguments['url'],
+				rawurldecode($this->arguments['url']),
 				t3lib_utility_Http::HTTP_STATUS_307
 			);
 		}
@@ -105,8 +105,8 @@ class Tx_Contrast_Handler {
 	protected function isValidUrl() {
 		return (
 			isset($this->arguments['url']) && isset($this->arguments['urlHash'])
-			&& md5($this->arguments['url']) === $this->arguments['urlHash']
-			&& t3lib_div::isOnCurrentHost($this->arguments['url'])
+			&& md5(rawurldecode($this->arguments['url'])) === $this->arguments['urlHash']
+			&& t3lib_div::sanitizeLocalUrl($this->arguments['url']) !== ''
 		);
 	}
 
