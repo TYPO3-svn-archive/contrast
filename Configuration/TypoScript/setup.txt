@@ -19,35 +19,31 @@ lib.tx_contrast.isModule {
 
 lib.tx_contrast.link = TEXT
 lib.tx_contrast.link {
-	ifEmpty.data = LLL:EXT:contrast/Resources/Private/locallang.xml:linkTitle
+	current = 1
 	typolink {
 		parameter.data = TSFE:id
-		additionalParams.cObject = COA
-		additionalParams.cObject {
-			10 = TEXT
-			10.value = &tx_contrast[toggle]=1
-			20 = TEXT
-			20.data = getIndpEnv:TYPO3_SITE_SCRIPT
-			20.rawUrlEncode = 1
-			20.wrap = &tx_contrast[toggle]=1&tx_contrast[url]=|
-			30 = TEXT
-			30.data = getIndpEnv:TYPO3_SITE_SCRIPT
-			30.hash = md5
-			30.wrap = &tx_contrast[urlHash]=|
+		addQueryString = 1
+		addQueryString {
+			method = GET
+			exclude = tx_contrast
 		}
+		additionalParams = &tx_contrast=1
+		useCacheHash = 1
 	}
 	wrap = <span class="contrast-link">|</span>
 }
 
 lib.tx_contrast.menuLink {
+	setContentToCurrent = 1
 	if < lib.tx_contrast.isModule
-	typolink < lib.tx_contrast.link.typolink
-	wrap < lib.tx_contrast.link.wrap
+	cObject =< lib.tx_contrast.link
 }
 
-[globalVar = TSFE:fe_user|sesData|tx_contrast|enable = 1] OR [globalVar = GP:tx_contrast|toggle = 1]
+config.linkVars := addToList(tx_contrast(1))
+
+[globalVar = GP:tx_contrast = 1]
+lib.tx_contrast.link.typolink.additionalParams = &tx_contrast=0
 {$contrast.pageObjectName} {
 	headerData.999999 < lib.tx_contrast.includer
-	999999 =< lib.tx_contrast.handler
 }
 [end]

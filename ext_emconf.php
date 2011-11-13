@@ -3,7 +3,7 @@
 ########################################################################
 # Extension Manager/Repository config file for ext "contrast".
 #
-# Auto generated 04-11-2011 19:39
+# Auto generated 13-11-2011 23:16
 #
 # Manual updates:
 # Only the data in the array - everything else is removed by next
@@ -29,7 +29,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'clearCacheOnLoad' => 0,
 	'lockType' => '',
 	'author_company' => '',
-	'version' => '0.1.3',
+	'version' => '0.1.4',
 	'constraints' => array(
 		'depends' => array(
 		),
@@ -38,7 +38,7 @@ $EM_CONF[$_EXTKEY] = array(
 		'suggests' => array(
 		),
 	),
-	'_md5_values_when_last_written' => 'a:12:{s:9:"ChangeLog";s:4:"a21a";s:10:"README.txt";s:4:"3e23";s:12:"ext_icon.gif";s:4:"1bdc";s:14:"ext_tables.php";s:4:"599e";s:16:"svn-commit.2.tmp";s:4:"551a";s:14:"svn-commit.tmp";s:4:"68f9";s:19:"Classes/Handler.php";s:4:"64c7";s:20:"Classes/Includer.php";s:4:"3f16";s:38:"Configuration/TypoScript/constants.txt";s:4:"e382";s:34:"Configuration/TypoScript/setup.txt";s:4:"d6dc";s:31:"Resources/Private/locallang.xml";s:4:"340f";s:29:"Resources/Public/contrast.css";s:4:"ed7d";}',
+	'_md5_values_when_last_written' => 'a:9:{s:9:"ChangeLog";s:4:"afbf";s:10:"README.txt";s:4:"93eb";s:12:"ext_icon.gif";s:4:"1bdc";s:14:"ext_tables.php";s:4:"599e";s:20:"Classes/Includer.php";s:4:"3f16";s:38:"Configuration/TypoScript/constants.txt";s:4:"e382";s:34:"Configuration/TypoScript/setup.txt";s:4:"cdc3";s:31:"Resources/Private/locallang.xml";s:4:"340f";s:29:"Resources/Public/contrast.css";s:4:"ed7d";}',
 	'suggests' => array(
 	),
 );
